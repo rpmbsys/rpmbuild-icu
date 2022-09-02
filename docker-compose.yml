@@ -12,6 +12,7 @@ services:
       - rpm8stream:/home/centos/rpmbuild/RPMS
     build:
       context: .
+      dockerfile: Dockerfile.el8
       args:
         centos: $OS8
 
