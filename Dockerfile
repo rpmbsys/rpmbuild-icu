@@ -1,11 +1,11 @@
-ARG centos=7.9.2009
-FROM aursu/rpmbuild:${centos}-build-gcc8
+ARG os=8.7.20221112
+FROM aursu/rpmbuild:${os}-build
 
 USER root
-RUN yum -y install \
+RUN dnf -y install \
         doxygen \
         python3 \
-    && yum clean all && rm -rf /var/cache/yum
+    && dnf clean all && rm -rf /var/cache/dnf
 
 COPY SOURCES ${BUILD_TOPDIR}/SOURCES
 COPY SPECS ${BUILD_TOPDIR}/SPECS
